@@ -177,7 +177,6 @@
 		6D98DA92209C41AC007E4B01 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6D98DAB8209C51D7007E4B01 /* Vendors */,
 				6D98DA93209C41AC007E4B01 /* Module */,
 				6D98DA99209C41AC007E4B01 /* Resources */,
 			);
@@ -240,13 +239,6 @@
 				6D98DAB9209C52F0007E4B01 /* factory.pch */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		6D98DAB8209C51D7007E4B01 /* Vendors */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Vendors;
 			sourceTree = "<group>";
 		};
 		E03B0A47E42FB540BC9A0225 /* Frameworks */ = {
@@ -620,6 +612,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N4686HA3AU;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FactoryDesign/Classes/Resources/factory.pch";
 				INFOPLIST_FILE = FactoryDesign/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -635,6 +628,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N4686HA3AU;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FactoryDesign/Classes/Resources/factory.pch";
 				INFOPLIST_FILE = FactoryDesign/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

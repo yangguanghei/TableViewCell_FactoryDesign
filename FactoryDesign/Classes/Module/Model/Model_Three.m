@@ -7,7 +7,16 @@
 //
 
 #import "Model_Three.h"
+#import "TableViewCell_Model_Three.h"
 
 @implementation Model_Three
+
+- (NSString *)cellClassName {
+    return NSStringFromClass([TableViewCell_Model_Three class]);
+}
+
+- (NSString *)reuseIdentifier {
+    return NSStringFromClass([TableViewCell_Model_Three class]);
+}
 
 @end

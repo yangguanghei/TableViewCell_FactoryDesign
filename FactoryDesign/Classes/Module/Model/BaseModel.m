@@ -14,7 +14,6 @@
 @implementation BaseModel
 
 + (instancetype)modelWithDictionary:(NSDictionary *)dictionary{
-    
     BaseModel *model = nil;
     if ([[dictionary objectForKey:@"tag"] isEqualToString:@"001"]) {
         model = [[Model_One alloc]init];
@@ -32,4 +31,5 @@
     
 //    NSLog(@"key ---: %@", key);
 }
+
 @end

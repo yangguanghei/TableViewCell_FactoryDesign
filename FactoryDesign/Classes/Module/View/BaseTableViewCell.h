@@ -10,10 +10,12 @@
 #import "BaseModel.h"
 
 @interface BaseTableViewCell : UITableViewCell
+
 @property (nonatomic, strong) BaseModel *bModel;
 
 //根据Model返回对应的Cell
 + (instancetype)configCellWithModel:(BaseModel *)bModel;
 //返回cell的高度
 + (CGFloat)cellHeightWithModel:(BaseModel *)bModel;
+
 @end

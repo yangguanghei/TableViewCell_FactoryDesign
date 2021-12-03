@@ -12,9 +12,11 @@
 #define kWidth ([UIScreen mainScreen].bounds.size.width)
 
 @interface TableViewCell_Model_Three()
+
 @property (nonatomic, strong) UIImageView *imgView;
 @property (nonatomic, strong) UILabel     *titleLab;
 @property (nonatomic, strong) UILabel     *contentLab;
+
 @end
 
 @implementation TableViewCell_Model_Three
@@ -28,10 +30,10 @@
     return self;
 }
 
-
 - (void)initUI{
-   
     _imgView = [UIImageView new];
+    _imgView.contentMode = UIViewContentModeScaleAspectFill;
+    _imgView.clipsToBounds = YES;
     [self.contentView addSubview:_imgView];
     
     _titleLab = [[UILabel alloc]init];
@@ -42,7 +44,6 @@
 }
 
 - (void)layoutSubviews{
-    
     [super layoutSubviews];
     
     [_imgView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -67,28 +68,15 @@
 
 //重写父类返回cell高度方法
 + (CGFloat)cellHeightWithModel:(BaseModel *)bModel{
-
     return 100;
 }
 
 - (void)setBModel:(BaseModel *)bModel{
-    
     Model_Three *threeModel = (Model_Three *)bModel;
     
     [_imgView sd_setImageWithURL:[NSURL URLWithString:threeModel.picUrl] placeholderImage:[UIImage imageNamed:@""]];
     _titleLab.text = threeModel.singer;
     _contentLab.text = threeModel.name;
-}
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

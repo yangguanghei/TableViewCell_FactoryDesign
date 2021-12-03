@@ -10,9 +10,12 @@
 #import "Model_One.h"
 
 @interface TableViewCell_Model_One()
+
 @property (nonatomic, strong) UIImageView *imgView;
 @property (nonatomic, strong) UILabel      *lab;
+
 @end
+
 @implementation TableViewCell_Model_One
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -25,8 +28,9 @@
 }
 
 - (void)initUI{
-    
     _imgView = [UIImageView new];
+    _imgView.contentMode = UIViewContentModeScaleAspectFill;
+    _imgView.clipsToBounds = YES;
     [self.contentView addSubview:_imgView];
     
     _lab = [[UILabel alloc]init];
@@ -35,9 +39,7 @@
 }
 
 - (void)layoutSubviews{
-    
     [super layoutSubviews];
-    
     [_imgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.mas_equalTo(10);
         make.height.mas_equalTo(90);
@@ -65,19 +67,6 @@
     Model_One *oneModel = (Model_One *)bModel;
     [_imgView sd_setImageWithURL:[NSURL URLWithString:oneModel.imgsrc] placeholderImage:[UIImage imageNamed:@"common_pic_default"]];
     _lab.text = oneModel.title;
-    
-}
-
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

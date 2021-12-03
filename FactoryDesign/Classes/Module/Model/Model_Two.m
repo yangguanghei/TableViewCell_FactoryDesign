@@ -7,7 +7,16 @@
 //
 
 #import "Model_Two.h"
+#import "TableViewCell_Model_Two.h"
 
 @implementation Model_Two
+
+- (NSString *)cellClassName {
+    return NSStringFromClass([TableViewCell_Model_Two class]);
+}
+
+- (NSString *)reuseIdentifier {
+    return NSStringFromClass([TableViewCell_Model_Two class]);
+}
 
 @end

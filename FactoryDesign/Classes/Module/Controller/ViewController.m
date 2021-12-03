@@ -11,16 +11,16 @@
 #import "BaseTableViewCell.h"
 
 @interface ViewController ()
+
 @property (nonatomic, strong) NSMutableArray *dataArray;
+
 @end
 
 @implementation ViewController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-  
    NSArray *array = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"dataSource" ofType:@"plist"]];
     self.dataArray = [NSMutableArray array];
     for (NSDictionary * dict in array) {
@@ -30,16 +30,15 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
     return _dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     BaseModel *model = self.dataArray[indexPath.row];
-    BaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithUTF8String:object_getClassName(model)]];
+//    BaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithUTF8String:object_getClassName(model)]];
+    BaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: model.reuseIdentifier];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    if (cell == nil) {
+    if (cell == nil) {  // 通过不同的model创建不同的cell
         cell = [BaseTableViewCell configCellWithModel:model];
     }
     [cell setBModel:model];
@@ -47,20 +46,12 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     BaseModel *model = self.dataArray[indexPath.row];
     return [BaseTableViewCell cellHeightWithModel:model];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end
